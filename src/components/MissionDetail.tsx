@@ -42,7 +42,7 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
       case 'company':
         return <CompanyContent company={item.data as Company} />;
       case 'education':
-        return <EducationContent education={item.data as Education} />;
+        return <div/>;
       case 'event':
         return <EventContent event={item.data as Event} />;
     }
@@ -80,7 +80,7 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
             <X className="w-5 h-5" />
           </button>
         </div>
-        <div className="p-6">{renderContent()}</div>
+        {item.type !== 'education' && <div className="p-6">{renderContent()}</div>}
       </div>
     </div>
   );
@@ -159,18 +159,7 @@ const CompanyContent = ({ company }: { company: Company }) => (
   </div>
 );
 
-const EducationContent = ({ education }: { education: Education }) => (
-  <div className="space-y-4">
-    <div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">Diplôme</h3>
-      <p className="text-gray-700">{education.degree}</p>
-    </div>
-    <div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">Institution</h3>
-      <p className="text-gray-700">{education.institution}</p>
-    </div>
-  </div>
-);
+
 
 const EventContent = ({ event }: { event: Event }) => (
   <div className="space-y-4">
@@ -178,11 +167,6 @@ const EventContent = ({ event }: { event: Event }) => (
       <h3 className="text-lg font-semibold text-gray-900 mb-2">Description</h3>
       <p className="text-gray-700">{event.description}</p>
     </div>
-    <div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">Type</h3>
-      <span className="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">
-        {event.type}
-      </span>
-    </div>
+   
   </div>
 );

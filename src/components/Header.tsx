@@ -36,13 +36,7 @@ export const Header = ({ name, role, contacts, searchQuery = '', onSearchChange 
             <Mail className="w-4 h-4" />
             <span className="hidden sm:inline">Email</span>
           </a>
-          <a
-            href={`tel:${contacts.phone}`}
-            className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-sm text-gray-700"
-          >
-            <Phone className="w-4 h-4" />
-            <span className="hidden sm:inline">Téléphone</span>
-          </a>
+        
           <a
             href={contacts.linkedin}
             target="_blank"

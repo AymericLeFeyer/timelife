@@ -25,11 +25,41 @@ const itemMatchesSearch = (item: TimelineItemType, query: string): boolean => {
   if (item.title.toLowerCase().includes(lowerQuery)) return true;
   if (item.subtitle?.toLowerCase().includes(lowerQuery)) return true;
 
+  // Search in mission-specific fields
   if (item.type === 'mission' && 'technologies' in item.data) {
     const mission = item.data as any;
+    
+    // Search in context
+    if (mission.context?.toLowerCase().includes(lowerQuery)) return true;
+    
+    // Search in technologies
     if (mission.technologies && Array.isArray(mission.technologies)) {
       if (mission.technologies.some((tech: any) =>
-        tech.name?.toLowerCase().includes(lowerQuery)
+        tech.name?.toLowerCase().includes(lowerQuery) ||
+        tech.comments?.toLowerCase().includes(lowerQuery)
+      )) {
+        return true;
+      }
+    }
+    
+    // Search in tasks
+    if (mission.tasks && Array.isArray(mission.tasks)) {
+      if (mission.tasks.some((task: any) =>
+        task?.toLowerCase?.().includes(lowerQuery)
+      )) {
+        return true;
+      }
+    }
+  }
+
+  // Search in company-specific fields
+  if (item.type === 'company') {
+    const company = item.data as any;
+    
+    // Search in responsibilities
+    if (company.responsibilities && Array.isArray(company.responsibilities)) {
+      if (company.responsibilities.some((resp: any) =>
+        resp?.toLowerCase?.().includes(lowerQuery)
       )) {
         return true;
       }

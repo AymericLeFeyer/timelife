@@ -1,27 +1,27 @@
 [
   {
     "name": "Kotlin",
-    "icon": "",
+    "icon": "/icons/technologies/kotlin.png",
     "category": "Language"
   },
   {
     "name": "Compose",
-    "icon": "",
+    "icon": "/icons/technologies/compose.png",
     "category": "Framework"
   },
   {
     "name": "Koin",
-    "icon": "",
+    "icon": "/icons/technologies/koin.png",
     "category": "Library"
   },
   {
     "name": "Ktor",
-    "icon": "",
+    "icon": "/icons/technologies/ktor.png",
     "category": "Library"
   },
   {
     "name": "Git",
-    "icon": "",
+    "icon": "/icons/technologies/git.png",
     "category": "Tool"
   },
   {
@@ -36,12 +36,12 @@
   },
   {
     "name": "Jira",
-    "icon": "",
+    "icon": "/icons/technologies/jira.svg",
     "category": "Tool"
   },
   {
     "name": "Kubernetes",
-    "icon": "",
+    "icon": "/icons/technologies/kubernetes.png",
     "category": "Infrastructure"
   },
   {
@@ -51,7 +51,7 @@
   },
   {
     "name": "Tzatziki",
-    "icon": "",
+    "icon": "/icons/companies/decathlon.png",
     "category": "Testing"
   },
   {
@@ -61,7 +61,7 @@
   },
   {
     "name": "Dart",
-    "icon": "",
+    "icon": "/icons/technologies/dart.png",
     "category": "Language"
   },
   {
@@ -71,7 +71,7 @@
   },
   {
     "name": "Guerkin",
-    "icon": "",
+    "icon": "/icons/technologies/guerkin.png",
     "category": "Testing"
   },
   {
@@ -81,7 +81,7 @@
   },
   {
     "name": "WPF",
-    "icon": "",
+    "icon": "/icons/technologies/wpf.png",
     "category": "Framework"
   },
   {
@@ -91,7 +91,7 @@
   },
   {
     "name": "Oracle",
-    "icon": "",
+    "icon": "/icons/technologies/oracle.png",
     "category": "Database"
   },
   {
@@ -101,23 +101,18 @@
   },
   {
     "name": "Material UI",
-    "icon": "",
+    "icon": "/icons/technologies/material-ui.jpg",
     "category": "UI Library"
   },
   {
     "name": "ExpressJS",
-    "icon": "",
+    "icon": "/icons/technologies/express-js.webp",
     "category": "Framework"
   },
   {
     "name": "PostgreSQL",
     "icon": "/icons/technologies/postgres.png",
     "category": "Database"
-  },
-  {
-    "name": "DB Migrate",
-    "icon": "",
-    "category": "Tool"
   },
   {
     "name": "Docker",
@@ -141,17 +136,17 @@
   },
   {
     "name": "Kafka",
-    "icon": "",
+    "icon": "/icons/technologies/kafka.png",
     "category": "Infrastructure"
   },
   {
     "name": "Redis",
-    "icon": "",
+    "icon": "/icons/technologies/redis.png",
     "category": "Database"
   },
   {
     "name": "Plant UML",
-    "icon": "",
+    "icon": "/icons/technologies/plantuml.webp",
     "category": "Tool"
   },
   {
@@ -161,12 +156,12 @@
   },
   {
     "name": "Gitlab CI",
-    "icon": "",
+    "icon": "/icons/technologies/gitlab.png",
     "category": "CI/CD"
   },
   {
     "name": "Google Cloud Platform",
-    "icon": "",
+    "icon": "/icons/technologies/google-cloud.png",
     "category": "Cloud"
   },
   {

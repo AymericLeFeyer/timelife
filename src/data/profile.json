@@ -4,7 +4,7 @@
   "contacts": {
     "email": "lefeyer.aymeric@gmail.com",
     "phone": "+33 6 52 88 11 55",
-    "linkedin": "https://www.linkedin.com/in/aymeric-le-feyer/",
+    "linkedin": "https://www.linkedin.com/in/AymericLeFeyer/",
     "github": "AymericLeFeyer"
   },
   "companies": [
@@ -42,7 +42,7 @@
     },
     {
       "company": "Freelance",
-      "position": "Développeur fullstack",
+      "position": "Développeur fullstack freelance",
       "start_date": "2021-07",
       "end_date": "2023-07",
       "row": 1,
@@ -94,13 +94,8 @@
       "degree": "Licence en Informatique",
       "start_date": "2017-09",
       "end_date": "2020-06"
-    },
-    {
-      "institution": "Lycée Val de Lys",
-      "degree": "Baccauréat Scientifique, spécialité Mathématiques",
-      "start_date": "2014-09",
-      "end_date": "2017-06"
     }
+   
   ],
   "missions": [
     {
@@ -259,7 +254,7 @@
         }
       ],
       "tasks": [
-        "Formation de l'équipe aux bonnes pratiques Flutter",
+        "Formation à l'équipe des bonnes pratiques Flutter",
         "Formation à Riverpod pour la gestion d'état",
         "Aide à la mise en place de l'architecture technique Clean Code",
         "Revue de code et validation auprès des pairs"
@@ -347,12 +342,8 @@
           "name": "PostgreSQL",
           "frequency": 0.5,
           "comments": "Utilisé comme base de données principale pour stocker les données de l'application."
-        },
-        {
-          "name": "DB Migrate",
-          "frequency": 0.1,
-          "comments": "Utilisé pour gérer les migrations de la base de données."
         }
+      
       ],
       "tasks": [
         "Création de pages et composants Angular pour afficher les informations d'éligibilité et les offres internet",
@@ -459,7 +450,7 @@
           "comments": "Utilisé pour le développement de l'application mobile Android."
         },
         {
-          "name": "NodeJS",
+          "name": "Node.js",
           "frequency": 1,
           "comments": "Utilisé pour le développement de la logique métier de l'application backend."
         },
@@ -646,7 +637,7 @@
     {
       "title": "Développeur Flutter",
       "context": "Bonap est un projet de fin d'études visant à développer une idée de A à Z, sans contrainte technologique. Nous avons créé une application mobile de gestion de menus et de repas, avec une liste de courses intelligente par semaine. Bonap vient de « Bon Appétit ». Le projet a obtenu la note de 18/20 et faisait partie des meilleurs de la promotion.",
-      "company": "Side Project",
+      "company": "Bonap",
       "start_date": "2019-09",
       "end_date": "2020-05",
       "row": 2,
@@ -678,7 +669,7 @@
     {
       "title": "Développeur Fullstack",
       "context": "Ocee est un projet de fin d'études visant à développer une idée de A à Z, sans contrainte technologique. Nous avons créé une application web pour permettre aux entreprises de suivre l'avancement de leurs projets en un instant. Ocee signifie « Où Ça En Est ». Le projet a reçu une bonne note et faisait partie des meilleurs de la promotion.",
-      "company": "Side Project",
+      "company": "Ocee",
       "start_date": "2021-09",
       "end_date": "2021-12",
       "row": 1,

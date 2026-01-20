@@ -87,22 +87,21 @@ export const Timeline = ({ items, searchQuery = '' }: TimelineProps) => {
 
   const bounds = getTimelineBounds(items);
   const baseWidth = 3000;
-  const sidePadding = typeof window !== 'undefined' ? window.innerWidth / 2 : 400;
+  const sidePadding = typeof window !== 'undefined' ? window.innerWidth / 3 : 400;
   const timelineWidth = baseWidth * zoom;
   const totalWidth = timelineWidth + sidePadding * 2;
 
   const positionedItems = assignLevels(items, bounds.min, bounds.max, timelineWidth);
 
   useEffect(() => {
-    if (!isVertical && containerRef.current && positionedItems.length > 0 && !hasScrolledToEnd.current) {
+    if (containerRef.current && positionedItems.length > 0 && !hasScrolledToEnd.current) {
       const timer = setTimeout(() => {
         if (containerRef.current) {
           const lastItem = positionedItems[positionedItems.length - 1];
           const lastItemEnd = lastItem.position + lastItem.width + sidePadding;
-          const scrollTarget = lastItemEnd - 200;
 
           containerRef.current.scrollTo({
-            left: scrollTarget,
+            left: lastItemEnd * 2,
             behavior: 'smooth'
           });
           hasScrolledToEnd.current = true;
@@ -160,34 +159,7 @@ export const Timeline = ({ items, searchQuery = '' }: TimelineProps) => {
     return markers;
   };
 
-  if (isVertical) {
-    return (
-      <div className="p-4">
-        <div className="max-w-2xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Timeline</h1>
-            <p className="text-gray-600">Mon parcours professionnel</p>
-          </div>
-          <div className="relative">
-            {items.map((item) => (
-              <TimelineItemComponent
-                key={item.id}
-                item={item}
-                position={0}
-                width={0}
-                onClick={() => setSelectedItem(item)}
-                isVertical={true}
-                level={0}
-                matchesSearch={itemMatchesSearch(item, searchQuery)}
-                isSearchActive={searchQuery.trim().length > 0}
-              />
-            ))}
-          </div>
-        </div>
-        <MissionDetail item={selectedItem} onClose={() => setSelectedItem(null)} />
-      </div>
-    );
-  }
+  
 
   return (
     <div className="relative">
@@ -243,7 +215,7 @@ export const Timeline = ({ items, searchQuery = '' }: TimelineProps) => {
           <div
             className="absolute top-1/2 -translate-y-1/2 flex flex-col items-center justify-center"
             style={{
-              left: `${timelineWidth + sidePadding + 20}px`,
+              left: `${(timelineWidth + sidePadding + 20)}px`,
               width: `${sidePadding - 40}px`
             }}
           >

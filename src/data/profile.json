@@ -1,6 +1,6 @@
 {
   "name": "Aymeric Le Feyer",
-  "role": "Software Engineer",
+  "role": "Software Engineer - Mobile Enthousiast",
   "contacts": {
     "email": "lefeyer.aymeric@gmail.com",
     "phone": "+33 6 52 88 11 55",
@@ -60,7 +60,7 @@
       "company": "Pit",
       "position": "Développeur full-stack en alternance",
       "start_date": "2020-09",
-      "end_date": "2022-08",
+      "end_date": "2022-09",
       "row": 2,
       "responsibilities": [
         "Réalisation de différents logiciels sur des technologies variées en fonction du besoin client"
@@ -98,6 +98,69 @@
    
   ],
   "missions": [
+    {
+      "title": "timelife.aymeric.lefeyer.fr",
+      "context": "J'ai vibe codé le site sur lequel vous êtes en une soirée avec Bolt et Copilot. J'aime pas spécialement faire ça, mais c'est plus rapide.",
+      "company": "AyLabs",
+      "start_date": "2026-01",
+      "end_date": "2026-01",
+      "row": 1,
+      "technologies": [
+        {
+          "name": "React",
+          "frequency": 1,
+          "comments": "Le peu que j'ai écrit, c'était du React. Sinon Bolt génère du React"
+        }
+      ],
+      "tasks": [
+        "Plein de prompts",
+        "Déploiement du site"
+      ]
+    },
+    {
+      "title": "aylabs.fr",
+      "context": "J'ai créé le site web aylabs.fr rapidement afin d'avoir un endroit pour référencier mes vidéos, mes articles et les produits que je teste. Un script n8n est joué tous les jours afin de récupérer certaines statistiques",
+      "company": "AyLabs",
+      "start_date": "2025-08",
+      "end_date": "2025-08",
+      "row": 1,
+      "technologies": [
+        {
+          "name": "React",
+          "frequency": 1,
+          "comments": "Base de code avec Bolt, ensuite code pour arriver à la forme finale du site"
+        }
+      ],
+      "tasks": [
+        "Quelques prompts pour démarrer",
+        "Développement de quelques fonctionnalitées manquantes",
+        "Déploiement du site"
+      ]
+    },
+    {
+      "title": "docs.aylabs.fr",
+      "context": "AyLabs Docs, un site que j'ai créé afin de rassembler les tutos et explications pour aider les gens à débuter dans la domotique",
+      "company": "AyLabs",
+      "start_date": "2025-12",
+      "end_date": "2025-12",
+      "row": 1,
+      "technologies": [
+        {
+          "name": "React",
+          "frequency": 1,
+          "comments": "Le peu que j'ai écrit, c'était du React. Sinon Bolt génère du React"
+        },
+        {
+          "name": "Docusaurus",
+          "frequency": 1,
+          "comments": "Un outil très sympa pour créer des documentations"
+        }
+      ],
+      "tasks": [
+        "Rédaction de documentations",
+        "Déploiement du site"
+      ]
+    },
     {
       "title": "Développeur d'application mobile Kotlin",
       "context": "BOSS est la solution développée par Decathlon pour toute la gestion du coffre magasin et des caisses au sein de tous les magasins. Elle est utilisée par les vendeurs sportifs et permet d'assurer une cohérence entre l'argent théorique et l'argent réel. Cette application, initialement en Flutter, s'intègre dans une plus grande application 'Cube in Store' écrite en Koltin avec Compose. Chaque module de cette application 'all-in-one' est gérée par une équipe. La seconde partie de ma mission consiste à la migration de Flutter vers Kotlin / Compose.",
@@ -580,7 +643,7 @@
       ]
     },
     {
-      "title": "Développeur web",
+      "title": "habidom.fr",
       "context": "Habidom est une entreprise du nord de la France spécialisée dans l'alarme, la domotique et la vidéosurveillance. J'ai créé un site web pour présenter l'entreprise, ses services, l'équipe et une FAQ. Un formulaire permet aux visiteurs d'entrer en contact avec Habidom.",
       "company": "Habidom",
       "start_date": "2020-07",
@@ -704,7 +767,7 @@
       ]
     },
     {
-      "title": "Développeur web",
+      "title": "caroline-optique.fr",
       "context": "Caroline Optique est une boutique de lunettes basée à Wormhout, une petite ville du nord de la France. J'ai créé un site web pour présenter l'entreprise, ses services et l'équipe. Un formulaire permet aux visiteurs d'entrer en contact avec Caroline Optique.",
       "company": "Caroline Optique",
       "start_date": "2022-01",

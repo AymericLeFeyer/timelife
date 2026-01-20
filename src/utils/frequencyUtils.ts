@@ -4,14 +4,14 @@ export function formatFrequency(frequency: number | string): string {
   }
 
   if (frequency >= 0.8) {
-    return 'Daily';
+    return 'Au quotidien';
   } else if (frequency >= 0.5) {
-    return 'Weekly';
+    return 'Souvent';
   } else if (frequency >= 0.2) {
-    return 'Monthly';
+    return 'De temps en temps';
   } else if (frequency > 0) {
-    return 'Rarely';
+    return 'Un tout petit peu';
   } else {
-    return 'Never';
+    return 'Jamais';
   }
 }

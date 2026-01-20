@@ -218,5 +218,10 @@
     "name": "Azure",
     "icon": "/icons/technologies/azure.png",
     "category": "Cloud"
+  },
+  {
+    "name": "Docusaurus",
+    "icon": "/icons/technologies/docusaurus.svg",
+    "category": "Framework"
   }
 ]

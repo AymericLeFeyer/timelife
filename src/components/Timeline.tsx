@@ -99,7 +99,7 @@ export const Timeline = ({ items, searchQuery = '' }: TimelineProps) => {
         if (containerRef.current) {
           const lastItem = positionedItems[positionedItems.length - 1];
           const lastItemEnd = lastItem.position + lastItem.width + sidePadding;
-          const scrollTarget = lastItemEnd - containerRef.current.clientWidth + 200;
+          const scrollTarget = lastItemEnd - 200;
 
           containerRef.current.scrollTo({
             left: scrollTarget,

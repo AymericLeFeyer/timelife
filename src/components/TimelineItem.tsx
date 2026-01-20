@@ -1,6 +1,7 @@
 import { TimelineItem as TimelineItemType, Event } from '../types/profile';
 import { formatDate, calculateYOffset, PositionedItem, getDurationInMonths } from '../utils/timelineUtils';
 import { Mic, GraduationCap, Briefcase, Code } from 'lucide-react';
+import companiesData from '../data/companies.json';
 
 interface TimelineItemProps {
   item: TimelineItemType;
@@ -74,22 +75,39 @@ export const TimelineItemComponent = ({
 
   const topOffset = calculateYOffset(level, allPositionedItems, ITEM_HEIGHT, TOP_PADDING, swimlanePadding);
 
-  if (isEvent || isShortEvent) {
+  // Check if it's a very short item (1-2 months) that should show as an icon
+  // OR if it's an event (always show as icon)
+  // OR if it's too narrow due to zoom level (less than 100px width)
+  const isVeryShortItem = ((item.type === 'mission' || item.type === 'company') && duration <= 2 && item.endDate !== null) || isEvent || width < 100;
+
+  // Resolve company icon for missions and companies
+  let companyIcon: string | undefined = undefined;
+  if ((item.type === 'company' || item.type === 'mission') && item.subtitle) {
+    const found = companiesData.find((c: any) => c.name === item.subtitle || c.name.toLowerCase() === item.subtitle.toLowerCase());
+    if (found && found.icon) companyIcon = found.icon;
+  }
+
+  // Show simple icon for very short items
+  if (isVeryShortItem) {
     let Icon;
-    let bgGradient;
+    let bgColor;
+    let iconColor;
 
     const shouldGrayOut = isSearchActive && !matchesSearch;
 
     if (isEvent) {
       const eventData = item.data as Event;
       Icon = eventData.type === 'talk' ? Mic : GraduationCap;
-      bgGradient = shouldGrayOut ? 'from-gray-400 to-gray-500' : 'from-amber-500 to-amber-600';
+      bgColor = shouldGrayOut ? '#d1d5db' : `${item.color}40`;
+      iconColor = shouldGrayOut ? '#9ca3af' : item.color;
     } else if (item.type === 'company') {
       Icon = Briefcase;
-      bgGradient = shouldGrayOut ? 'from-gray-400 to-gray-500' : 'from-green-500 to-green-600';
+      bgColor = shouldGrayOut ? '#d1d5db' : '#10b98140';
+      iconColor = shouldGrayOut ? '#9ca3af' : '#10b981';
     } else {
       Icon = Code;
-      bgGradient = shouldGrayOut ? 'from-gray-400 to-gray-500' : 'from-blue-500 to-blue-600';
+      bgColor = shouldGrayOut ? '#d1d5db' : '#3b82f640';
+      iconColor = shouldGrayOut ? '#9ca3af' : '#3b82f6';
     }
 
     return (
@@ -101,25 +119,33 @@ export const TimelineItemComponent = ({
           top: `${topOffset}px`,
         }}
       >
-        <div className="relative flex flex-col items-center">
-          <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${bgGradient} shadow-lg flex items-center justify-center transform transition-transform group-hover:scale-125 border-2 border-white`}>
-            <Icon className="w-4 h-4 text-white" />
+        <div className="relative flex flex-col items-center mt-7">
+          <div className="w-8 h-8 rounded-full shadow-lg flex items-center justify-center transform transition-all group-hover:scale-125 border-2 border-white" style={{ backgroundColor: bgColor, opacity: shouldGrayOut ? 0.6 : 1 }}>
+            {companyIcon ? (
+              <img src={companyIcon} alt="" className="w-5 h-5 object-contain" style={{ zIndex: 1, filter: shouldGrayOut ? 'grayscale(1) brightness(0.9)' : 'none' }} />
+            ) : (
+              <Icon className="w-4 h-4" style={{ color: iconColor }} />
+            )}
           </div>
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-30">
-            <div className="bg-gray-900 text-white text-xs rounded-lg px-3 py-2 shadow-xl">
-              <div className="font-semibold">{item.title}</div>
-              <div className="text-gray-300 text-[10px] mt-0.5">{item.subtitle}</div>
-              <div className="text-gray-300 text-[10px] mt-0.5">{formatDate(item.startDate)}</div>
-            </div>
-          </div>
+        
         </div>
       </button>
     );
   }
 
-  const displayTitle = item.subtitle ? `${item.subtitle} - ${item.title}` : item.title;
+  const displayTitle = item.title;
   const shouldGrayOut = isSearchActive && !matchesSearch;
-  const bgColor = shouldGrayOut ? '#9ca3af' : item.color;
+
+  // Resolve icon path for company/mission items using companies.json
+  const companies = (companiesData as Array<{ name: string; icon: string }>);
+  let resolvedIcon: string | undefined = undefined;
+  if (item.type === 'company' || item.type === 'mission') {
+    const companyName = item.subtitle;
+    const found = companies.find(c => c.name === companyName || c.name.toLowerCase() === companyName.toLowerCase());
+    if (found && found.icon) resolvedIcon = found.icon;
+  }
+
+  const bgColor = shouldGrayOut ? '#d1d5db' : `${item.color}40`;
 
   return (
     <button
@@ -130,20 +156,33 @@ export const TimelineItemComponent = ({
         width: `${width}px`,
         top: `${topOffset}px`,
         backgroundColor: bgColor,
+        marginTop: '16px',
       }}
     >
-      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
-      <div className="h-full flex flex-col justify-center px-3 text-white">
-        <div className="text-sm font-semibold truncate">{displayTitle}</div>
-        {width > 80 && (
-          <div className="text-xs opacity-90 truncate">
-            {formatDate(item.startDate)} - {item.endDate ? formatDate(item.endDate) : 'Présent'}
-          </div>
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity" style={{ backgroundColor: item.color }} />
+      <div className="h-full flex items-center justify-center gap-2 px-3 relative z-10" style={{ color: shouldGrayOut ? '#6b7280' : '#000' }}>
+        {/** Optional icon from public folder: render only if resolvedIcon exists */}
+        {resolvedIcon && (
+          <img
+            src={resolvedIcon}
+            alt=""
+            className="w-6 h-6 object-contain flex-shrink-0"
+            style={{ filter: shouldGrayOut ? 'grayscale(1) brightness(0.9)' : 'none' }}
+          />
         )}
+
+        <div className="flex flex-col justify-center min-w-0">
+          <div className="text-sm font-semibold truncate">{displayTitle}</div>
+          {width > 80 && !isShortEvent && (
+            <div className="text-xs truncate" style={{ color: shouldGrayOut ? '#9ca3af' : '#000' }}>
+              {formatDate(item.startDate)} - {item.endDate ? formatDate(item.endDate) : 'Aujourd\'hui'}
+            </div>
+          )}
+        </div>
       </div>
       {!item.endDate && (
         <div className="absolute top-1 right-1">
-          <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+          <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: item.color }} />
         </div>
       )}
     </button>

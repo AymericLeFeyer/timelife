@@ -1,70 +1,66 @@
 [
   {
     "name": "AyLabs",
-    "icon": ""
+    "icon": "/icons/companies/aylabs.png"
   },
   {
     "name": "Lesieur",
-    "icon": ""
-  },
-  {
-    "name": "Conhexa",
-    "icon": ""
-  },
-  {
-    "name": "Freelance",
-    "icon": ""
-  },
-  {
-    "name": "Pit",
-    "icon": ""
-  },
-  {
-    "name": "Decathlon",
-    "icon": ""
-  },
-  {
-    "name": "Le Fourgon",
-    "icon": ""
-  },
-  {
-    "name": "Park on Time",
-    "icon": ""
-  },
-  {
-    "name": "Paragon",
-    "icon": ""
-  },
-  {
-    "name": "EasyTeam",
-    "icon": ""
-  },
-  {
-    "name": "Baggou",
-    "icon": ""
+    "icon": "/icons/companies/lesieur.png"
   },
   {
     "name": "Dunfresh",
-    "icon": ""
+    "icon": "/icons/companies/conhexa.png"
+  },
+  {
+    "name": "Freelance",
+    "icon": "/icons/companies/aylabs.png"
+  },
+  {
+    "name": "Pit",
+    "icon": "/icons/companies/pit.png"
+  },
+  {
+    "name": "Decathlon",
+    "icon": "/icons/companies/decathlon.png"
+  },
+  {
+    "name": "Le Fourgon",
+    "icon": "/icons/companies/lefourgon.png"
+  },
+  {
+    "name": "Park on Time",
+    "icon": "/icons/companies/parkontime.png"
+  },
+  {
+    "name": "Paragon",
+    "icon": "/icons/companies/paragon.png"
+  },
+  {
+    "name": "Baggou",
+    "icon": "/icons/companies/baggou.png"
+  },
+  {
+    "name": "Dunfresh",
+    "icon": "/icons/companies/dunfresh.png"
   },
   {
     "name": "Habidom",
-    "icon": ""
+    "icon": "/icons/companies/habidom.png"
   },
   {
     "name": "Neo",
-    "icon": ""
+    "icon": "/icons/companies/neo.png"
   },
   {
     "name": "Side Project",
-    "icon": ""
+    "icon": "/icons/companies/aylabs.png"
   },
   {
     "name": "Caroline Optique",
-    "icon": ""
+    "icon": "/icons/companies/caroline-optique.png"
   },
   {
     "name": "TalentPlug",
-    "icon": ""
+    "icon": "/icons/companies/talentplug.jpg"
   }
 ]

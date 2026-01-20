@@ -33,7 +33,7 @@
       ]
     },
     {
-      "company": "Conhexa",
+      "company": "Dunfresh",
       "position": "Manutentionnaire entrepôt",
       "start_date": "2019-06",
       "end_date": "2019-08",
@@ -61,7 +61,7 @@
       "position": "Développeur full-stack en alternance",
       "start_date": "2020-09",
       "end_date": "2022-08",
-      "row": 1,
+      "row": 2,
       "responsibilities": [
         "Réalisation de différents logiciels sur des technologies variées en fonction du besoin client"
       ]
@@ -71,7 +71,7 @@
       "position": "Consultant en informatique",
       "start_date": "2022-09",
       "end_date": "Present",
-      "row": 1,
+      "row": 2,
       "responsibilities": [
         "Conseil informatique",
         "Développement de logiciels sur mesure",
@@ -109,7 +109,7 @@
       "company": "Decathlon",
       "start_date": "2024-05",
       "end_date": "Present",
-      "row": 1,
+      "row": 2,
       "technologies": [
         {
           "name": "Kotlin",
@@ -182,7 +182,7 @@
       "company": "Decathlon",
       "start_date": "2022-06",
       "end_date": "2024-05",
-      "row": 1,
+      "row": 2,
       "technologies": [
         {
           "name": "Flutter",
@@ -245,7 +245,7 @@
       "company": "Le Fourgon",
       "start_date": "2023-11",
       "end_date": "2024-02",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "Flutter",
@@ -271,7 +271,7 @@
       "company": "Park on Time",
       "start_date": "2023-10",
       "end_date": "2023-10",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "Flutter",
@@ -323,7 +323,7 @@
     {
       "title": "Développeur fullstack",
       "context": "Cephee est un portail permettant de connaître l'éligibilité internet d'un lieu grâce aux informations fournies par les fournisseurs d'accès internet. Il est possible de consulter les différentes offres proposées. ",
-      "company": "EasyTeam",
+      "company": "Pit",
       "start_date": "2021-12",
       "end_date": "2022-01",
       "row": 2,
@@ -451,7 +451,7 @@
       "company": "Pit",
       "start_date": "2020-06",
       "end_date": "2021-06",
-      "row": 1,
+      "row": 2,
       "technologies": [
         {
           "name": "Android (Java)",
@@ -507,7 +507,7 @@
       "company": "Baggou",
       "start_date": "2021-02",
       "end_date": "2021-08",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "Flutter",
@@ -553,7 +553,7 @@
       "company": "Dunfresh",
       "start_date": "2019-09",
       "end_date": "2019-09",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "Python",
@@ -571,7 +571,7 @@
       "company": "Dunfresh",
       "start_date": "2020-01",
       "end_date": "2020-04",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "Python",
@@ -594,7 +594,7 @@
       "company": "Habidom",
       "start_date": "2020-07",
       "end_date": "2020-07",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "HTML",
@@ -624,7 +624,7 @@
       "company": "Neo",
       "start_date": "2021-08",
       "end_date": "2021-08",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "Flutter",
@@ -649,7 +649,7 @@
       "company": "Side Project",
       "start_date": "2019-09",
       "end_date": "2020-05",
-      "row": 1,
+      "row": 2,
       "technologies": [
         {
           "name": "Flutter",
@@ -681,7 +681,7 @@
       "company": "Side Project",
       "start_date": "2021-09",
       "end_date": "2021-12",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "Flutter",
@@ -718,7 +718,7 @@
       "company": "Caroline Optique",
       "start_date": "2022-01",
       "end_date": "2022-01",
-      "row": 2,
+      "row": 1,
       "technologies": [
         {
           "name": "HTML",

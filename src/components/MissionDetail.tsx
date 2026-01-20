@@ -3,6 +3,8 @@ import { TimelineItem } from '../types/profile';
 import { formatDate } from '../utils/timelineUtils';
 import { formatFrequency } from '../utils/frequencyUtils';
 import type { Mission, Company, Education, Event } from '../types/profile';
+import companiesData from '../data/companies.json';
+import technologiesData from '../data/technologies.json';
 
 interface MissionDetailProps {
   item: TimelineItem | null;
@@ -11,6 +13,14 @@ interface MissionDetailProps {
 
 export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
   if (!item) return null;
+
+  // Resolve company icon if mission or company type
+  let companyIcon: string | undefined = undefined;
+  if ((item.type === 'mission' || item.type === 'company') && item.subtitle) {
+    const companies = (companiesData as Array<{ name: string; icon: string }>);
+    const found = companies.find(c => c.name === item.subtitle || c.name.toLowerCase() === item.subtitle.toLowerCase());
+    if (found && found.icon) companyIcon = found.icon;
+  }
 
   const renderIcon = () => {
     switch (item.type) {
@@ -43,11 +53,12 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
       <div className="bg-white rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
           <div className="flex items-start gap-4 flex-1">
-            <div
-              className="p-3 rounded-lg"
-              style={{ backgroundColor: `${item.color}20`, color: item.color }}
-            >
-              {renderIcon()}
+            <div className="p-3 rounded-lg" style={{ backgroundColor: `${item.color}20` }}>
+              {companyIcon ? (
+                <img src={companyIcon} alt="" className="w-6 h-6 object-contain" />
+              ) : (
+                <div style={{ color: item.color }}>{renderIcon()}</div>
+              )}
             </div>
             <div className="flex-1">
               <h2 className="text-2xl font-bold text-gray-900">{item.title}</h2>
@@ -57,7 +68,7 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
                 <span>
                   {formatDate(item.startDate)}
                   {' - '}
-                  {item.endDate ? formatDate(item.endDate) : 'Présent'}
+                  {item.endDate ? formatDate(item.endDate) : 'Aujourd\'hui'}
                 </span>
               </div>
             </div>
@@ -75,50 +86,62 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
   );
 };
 
-const MissionContent = ({ mission }: { mission: Mission }) => (
-  <div className="space-y-6">
-    <div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">Contexte</h3>
-      <p className="text-gray-700 leading-relaxed">{mission.context}</p>
-    </div>
+const MissionContent = ({ mission }: { mission: Mission }) => {
+  const technologies = (technologiesData as Array<{ name: string; icon: string }>);
 
-    {mission.tasks && mission.tasks.length > 0 && (
+  return (
+    <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">Tâches</h3>
-        <ul className="space-y-2">
-          {mission.tasks.map((task, idx) => (
-            <li key={idx} className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-              <span className="text-gray-700">{task}</span>
-            </li>
-          ))}
-        </ul>
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Contexte</h3>
+        <p className="text-gray-700 leading-relaxed">{mission.context}</p>
       </div>
-    )}
 
-    {mission.technologies && mission.technologies.length > 0 && (
-      <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">Technologies</h3>
-        <div className="space-y-3">
-          {mission.technologies.map((tech, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-50 rounded-lg p-4 border border-gray-200"
-            >
-              <div className="flex items-center justify-between mb-1">
-                <span className="font-medium text-gray-900">{tech.name}</span>
-                <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
-                  {Math.round((tech.frequency || 0) * 100)}% - {formatFrequency(tech.frequency)}
-                </span>
-              </div>
-              <p className="text-sm text-gray-600">{tech.comments}</p>
-            </div>
-          ))}
+      {mission.tasks && mission.tasks.length > 0 && (
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Tâches</h3>
+          <ul className="space-y-2">
+            {mission.tasks.map((task, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                <span className="text-gray-700">{task}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-    )}
-  </div>
-);
+      )}
+
+      {mission.technologies && mission.technologies.length > 0 && (
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Technologies</h3>
+          <div className="space-y-3">
+            {mission.technologies.map((tech, idx) => {
+              const techData = technologies.find(t => t.name === tech.name || t.name.toLowerCase() === tech.name.toLowerCase());
+              return (
+                <div
+                  key={idx}
+                  className="bg-gray-50 rounded-lg p-4 border border-gray-200"
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center gap-2">
+                      {techData && techData.icon && (
+                        <img src={techData.icon} alt="" className="w-5 h-5 object-contain flex-shrink-0" />
+                      )}
+                      <span className="font-medium text-gray-900">{tech.name}</span>
+                    </div>
+                    <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
+                      {Math.round((tech.frequency || 0) * 100)}% - {formatFrequency(tech.frequency)}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600">{tech.comments}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const CompanyContent = ({ company }: { company: Company }) => (
   <div className="space-y-4">

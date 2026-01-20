@@ -205,7 +205,7 @@ export const Timeline = ({ items, searchQuery = '' }: TimelineProps) => {
             style={{ left: '20px', width: `${sidePadding - 40}px` }}
           >
             <div className="text-gray-400 text-sm italic text-center">
-              Avant je n'étais pas né
+              Avant ça je jouais à Dofus, ça t'intéresse ?
             </div>
             <div className="mt-2 text-gray-300 text-xs">✨</div>
           </div>
@@ -290,9 +290,9 @@ export const Timeline = ({ items, searchQuery = '' }: TimelineProps) => {
             />
           ))}
 
-          {positionedItems.length > 0 && (() => {
-            const lastItem = positionedItems[positionedItems.length - 1];
-            const todayPosition = lastItem.position + lastItem.width + sidePadding;
+          {(() => {
+            const today = new Date();
+            const todayPosition = calculatePosition(today, bounds.min, bounds.max, timelineWidth) + sidePadding;
             return (
               <div
                 className="absolute"

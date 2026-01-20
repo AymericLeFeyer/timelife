@@ -1,0 +1,232 @@
+[
+  {
+    "name": "Kotlin",
+    "icon": "",
+    "category": "Language"
+  },
+  {
+    "name": "Compose",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": "Koin",
+    "icon": "",
+    "category": "Library"
+  },
+  {
+    "name": "Ktor",
+    "icon": "",
+    "category": "Library"
+  },
+  {
+    "name": "Git",
+    "icon": "",
+    "category": "Tool"
+  },
+  {
+    "name": "Github",
+    "icon": "",
+    "category": "Platform"
+  },
+  {
+    "name": "Github Actions",
+    "icon": "",
+    "category": "CI/CD"
+  },
+  {
+    "name": "Jira",
+    "icon": "",
+    "category": "Tool"
+  },
+  {
+    "name": "Kubernetes",
+    "icon": "",
+    "category": "Infrastructure"
+  },
+  {
+    "name": "VueJS",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": "Tzatziki",
+    "icon": "",
+    "category": "Testing"
+  },
+  {
+    "name": "Flutter",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": "Dart",
+    "icon": "",
+    "category": "Language"
+  },
+  {
+    "name": "Firebase",
+    "icon": "",
+    "category": "Platform"
+  },
+  {
+    "name": "Guerkin",
+    "icon": "",
+    "category": "Testing"
+  },
+  {
+    "name": "Bitrise",
+    "icon": "",
+    "category": "CI/CD"
+  },
+  {
+    "name": "WPF",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": ".NET Core",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": "Oracle",
+    "icon": "",
+    "category": "Database"
+  },
+  {
+    "name": "Angular",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": "Material UI",
+    "icon": "",
+    "category": "UI Library"
+  },
+  {
+    "name": "ExpressJS",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": "PostgreSQL",
+    "icon": "",
+    "category": "Database"
+  },
+  {
+    "name": "DB Migrate",
+    "icon": "",
+    "category": "Tool"
+  },
+  {
+    "name": "Docker",
+    "icon": "",
+    "category": "Infrastructure"
+  },
+  {
+    "name": "Docker-Compose",
+    "icon": "",
+    "category": "Infrastructure"
+  },
+  {
+    "name": "Node.js",
+    "icon": "",
+    "category": "Runtime"
+  },
+  {
+    "name": "NodeJS",
+    "icon": "",
+    "category": "Runtime"
+  },
+  {
+    "name": "RabbitMQ",
+    "icon": "",
+    "category": "Infrastructure"
+  },
+  {
+    "name": "Kafka",
+    "icon": "",
+    "category": "Infrastructure"
+  },
+  {
+    "name": "Redis",
+    "icon": "",
+    "category": "Database"
+  },
+  {
+    "name": "Plant UML",
+    "icon": "",
+    "category": "Tool"
+  },
+  {
+    "name": "Android (Java)",
+    "icon": "",
+    "category": "Platform"
+  },
+  {
+    "name": "Gitlab CI",
+    "icon": "",
+    "category": "CI/CD"
+  },
+  {
+    "name": "Google Cloud Platform",
+    "icon": "",
+    "category": "Cloud"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "",
+    "category": "Database"
+  },
+  {
+    "name": "Cloud Firestore",
+    "icon": "",
+    "category": "Database"
+  },
+  {
+    "name": "Stripe",
+    "icon": "",
+    "category": "Payment"
+  },
+  {
+    "name": "Python",
+    "icon": "",
+    "category": "Language"
+  },
+  {
+    "name": "Django",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": "HTML",
+    "icon": "",
+    "category": "Language"
+  },
+  {
+    "name": "CSS",
+    "icon": "",
+    "category": "Language"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "",
+    "category": "Language"
+  },
+  {
+    "name": "Figma",
+    "icon": "",
+    "category": "Design"
+  },
+  {
+    "name": "React",
+    "icon": "",
+    "category": "Framework"
+  },
+  {
+    "name": "Azure",
+    "icon": "",
+    "category": "Cloud"
+  }
+]

@@ -1,7 +1,8 @@
 import { TimelineItem as TimelineItemType, Event } from '../types/profile';
 import { formatDate, calculateYOffset, PositionedItem, getDurationInMonths } from '../utils/timelineUtils';
-import { Mic, GraduationCap, Briefcase, Code } from 'lucide-react';
+import { Mic, GraduationCap, Trophy, Briefcase, Code } from 'lucide-react';
 import companiesData from '../data/companies.json';
+import technologiesData from '../data/technologies.json';
 
 interface TimelineItemProps {
   item: TimelineItemType;
@@ -78,7 +79,7 @@ export const TimelineItemComponent = ({
   // Check if it's a very short item (1-2 months) that should show as an icon
   // OR if it's an event (always show as icon)
   // OR if it's too narrow due to zoom level (less than 100px width)
-  const isVeryShortItem = ((item.type === 'mission' || item.type === 'company') && duration <= 2 && item.endDate !== null) || isEvent || width < 100;
+  const isVeryShortItem = ((item.type === 'mission' || item.type === 'company' || item.type === 'event' || item.type === 'education') && item.endDate !== null) && width < 100;
 
   // Resolve company icon for missions and companies
   let companyIcon: string | undefined = undefined;
@@ -92,19 +93,37 @@ export const TimelineItemComponent = ({
     let Icon;
     let bgColor;
     let iconColor;
+    let technologyIcon: string | undefined = undefined;
 
     const shouldGrayOut = isSearchActive && !matchesSearch;
 
+    // Check for icon in education/event data first
+    if (item.type === 'education') {
+      const education = item.data as any;
+      if (education.icon) {
+        technologyIcon = education.icon;
+      }
+    } else if (item.type === 'event') {
+      const event = item.data as Event;
+      if (event.icon) {
+        technologyIcon = event.icon;
+      }
+    }
+
     if (isEvent) {
       const eventData = item.data as Event;
-      Icon = eventData.type === 'talk' ? Mic : GraduationCap;
+      Icon = eventData.type === 'talk' ? Mic : Trophy;
       bgColor = shouldGrayOut ? '#d1d5db' : `${item.color}40`;
       iconColor = shouldGrayOut ? '#9ca3af' : item.color;
     } else if (item.type === 'company') {
       Icon = Briefcase;
       bgColor = shouldGrayOut ? '#d1d5db' : '#10b98140';
       iconColor = shouldGrayOut ? '#9ca3af' : '#10b981';
-    } else {
+    } else if (item.type === 'education') {
+      Icon = GraduationCap;
+      bgColor = shouldGrayOut ? '#d1d5db' : `${item.color}40`;
+      iconColor = shouldGrayOut ? '#9ca3af' : item.color;
+    }else {
       Icon = Code;
       bgColor = shouldGrayOut ? '#d1d5db' : '#3b82f640';
       iconColor = shouldGrayOut ? '#9ca3af' : '#3b82f6';
@@ -121,7 +140,9 @@ export const TimelineItemComponent = ({
       >
         <div className="relative flex flex-col items-center mt-7">
           <div className="w-8 h-8 rounded-full shadow-lg flex items-center justify-center transform transition-all group-hover:scale-125 border-2 border-white" style={{ backgroundColor: bgColor, opacity: shouldGrayOut ? 0.6 : 1 }}>
-            {companyIcon ? (
+            {technologyIcon ? (
+              <img src={technologyIcon} alt="" className="w-5 h-5 object-contain" style={{ zIndex: 1, filter: shouldGrayOut ? 'grayscale(1) brightness(0.9)' : 'none' }} />
+            ) : companyIcon ? (
               <img src={companyIcon} alt="" className="w-5 h-5 object-contain" style={{ zIndex: 1, filter: shouldGrayOut ? 'grayscale(1) brightness(0.9)' : 'none' }} />
             ) : (
               <Icon className="w-4 h-4" style={{ color: iconColor }} />
@@ -145,6 +166,31 @@ export const TimelineItemComponent = ({
     if (found && found.icon) resolvedIcon = found.icon;
   }
 
+  // Resolve icon for education and events
+  let educationEventIcon: string | undefined = undefined;
+  if (item.type === 'education') {
+    const education = item.data as any;
+    if (education.icon) {
+      educationEventIcon = education.icon;
+    }
+  } else if (item.type === 'event') {
+    const event = item.data as Event;
+    if (event.icon) {
+      educationEventIcon = event.icon;
+    }
+  }
+
+  // If no custom icon, check for technology name
+  if (!educationEventIcon && (item.type === 'event' || item.type === 'education')) {
+    const textToSearch = item.title.toLowerCase();
+    const tech = (technologiesData as any[]).find((t: any) =>
+      textToSearch.includes(t.name.toLowerCase())
+    );
+    if (tech && tech.icon) {
+      educationEventIcon = tech.icon;
+    }
+  }
+
   const bgColor = shouldGrayOut ? '#d1d5db' : `${item.color}40`;
 
   return (
@@ -165,6 +211,16 @@ export const TimelineItemComponent = ({
         {resolvedIcon && (
           <img
             src={resolvedIcon}
+            alt=""
+            className="w-6 h-6 object-contain flex-shrink-0"
+            style={{ filter: shouldGrayOut ? 'grayscale(1) brightness(0.9)' : 'none' }}
+          />
+        )}
+
+        {/** Optional icon for education/events */}
+        {!resolvedIcon && educationEventIcon && (
+          <img
+            src={educationEventIcon}
             alt=""
             className="w-6 h-6 object-contain flex-shrink-0"
             style={{ filter: shouldGrayOut ? 'grayscale(1) brightness(0.9)' : 'none' }}

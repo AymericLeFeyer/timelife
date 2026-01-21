@@ -87,24 +87,65 @@
       "institution": "Université de Lille",
       "degree": "Master en Informatique, spécialité E-Services",
       "start_date": "2020-09",
-      "end_date": "2022-06"
+      "end_date": "2022-06",
+      "icon": "/icons/companies/univ-lille.png"
     },
     {
       "institution": "Université Polytechnique Hauts-de-France",
       "degree": "Licence en Informatique",
       "start_date": "2017-09",
-      "end_date": "2020-06"
+      "end_date": "2020-06",
+      "icon": "/icons/companies/uphf.png"
+    },
+    {
+      "institution": "Coaching personnel",
+      "degree": "Kotlin / Compose",
+      "start_date": "2024-06",
+      "end_date": "2024-09",
+      "icon": "/icons/technologies/kotlin.png"
+    },
+    {
+      "institution": "Formation",
+      "degree": "Eco-conception",
+      "start_date": "2023-03",
+      "end_date": "2023-03",
+      "icon": "/icons/technologies/leaf.png"
+    },
+    {
+      "institution": "Formation",
+      "degree": "Prise de parole en public",
+      "start_date": "2024-01",
+      "end_date": "2024-01",
+      "icon": "/icons/technologies/speak.png"
+    },
+    {
+      "institution": "Formation",
+      "degree": "Jenkins",
+      "start_date": "2024-03",
+      "end_date": "2024-03",
+      "icon": "/icons/technologies/jenkins.png"
+    },
+    {
+      "institution": "Formation",
+      "degree": "Kubernetes",
+      "start_date": "2022-09",
+      "end_date": "2022-09",
+      "icon": "/icons/technologies/kubernetes.png"
     }
    
   ],
   "missions": [
     {
-      "title": "timelife.aymeric.lefeyer.fr",
+      "title": "Time Life",
       "context": "J'ai vibe codé le site sur lequel vous êtes en une soirée avec Bolt et Copilot. J'aime pas spécialement faire ça, mais c'est plus rapide.",
       "company": "AyLabs",
       "start_date": "2026-01",
       "end_date": "2026-01",
       "row": 1,
+      "link": {
+         "url": "https://timelife.aymeric.lefeyer.fr/",
+         "text": "Site web" 
+      },
       "technologies": [
         {
           "name": "React",
@@ -123,6 +164,10 @@
       "company": "AyLabs",
       "start_date": "2025-08",
       "end_date": "2025-08",
+      "link": {
+         "url": "https://www.aylabs.fr/",
+         "text": "Site web" 
+      },
       "row": 1,
       "technologies": [
         {
@@ -138,11 +183,15 @@
       ]
     },
     {
-      "title": "docs.aylabs.fr",
+      "title": "AyLabs Docs",
       "context": "AyLabs Docs, un site que j'ai créé afin de rassembler les tutos et explications pour aider les gens à débuter dans la domotique",
       "company": "AyLabs",
       "start_date": "2025-12",
       "end_date": "2025-12",
+      "link": {
+         "url": "https://www.docs.aylabs.fr/",
+         "text": "Site web" 
+      },
       "row": 1,
       "technologies": [
         {
@@ -648,6 +697,10 @@
       "company": "Habidom",
       "start_date": "2020-07",
       "end_date": "2020-07",
+      "link": {
+         "url": "https://www.habidom.fr/",
+         "text": "Site web" 
+      },
       "row": 1,
       "technologies": [
         {
@@ -678,6 +731,10 @@
       "company": "Neo",
       "start_date": "2021-08",
       "end_date": "2021-08",
+      "link": {
+         "url": "https://www.candoo.fr/",
+         "text": "Landing page" 
+      },
       "row": 1,
       "technologies": [
         {
@@ -703,6 +760,10 @@
       "company": "Bonap",
       "start_date": "2019-09",
       "end_date": "2020-05",
+      "link": {
+         "url": "https://stelapix.github.io/BonapWeb/",
+         "text": "Landing page" 
+      },
       "row": 2,
       "technologies": [
         {
@@ -733,6 +794,10 @@
       "title": "Développeur Fullstack",
       "context": "Ocee est un projet de fin d'études visant à développer une idée de A à Z, sans contrainte technologique. Nous avons créé une application web pour permettre aux entreprises de suivre l'avancement de leurs projets en un instant. Ocee signifie « Où Ça En Est ». Le projet a reçu une bonne note et faisait partie des meilleurs de la promotion.",
       "company": "Ocee",
+      "link": {
+         "url": "https://youtu.be/ezg4brJWcIk",
+         "text": "Vidéo promotionnelle" 
+      },
       "start_date": "2021-09",
       "end_date": "2021-12",
       "row": 1,
@@ -772,6 +837,10 @@
       "company": "Caroline Optique",
       "start_date": "2022-01",
       "end_date": "2022-01",
+      "link": {
+         "url": "https://www.caroline-optique.fr/",
+         "text": "Site web" 
+      },
       "row": 1,
       "technologies": [
         {
@@ -804,40 +873,60 @@
   ],
   "events": [
     {
+      "name": "Pit'ch ta mission",
+      "date": "2024-07",
+      "description": "L'objectif de cet exercice est de présenter sa mission auprès des autres collaborateurs chez Pit. Ce meetup était strictement interne",
+      "type": "talk",
+      "icon": "/icons/companies/pit.png"
+    },
+    {
+      "name": "Impression 3D",
+      "date": "2025-09",
+      "description": "Initiation aux bases de l'impression 3D lors d'un meetup interne chez Pit",
+      "type": "talk",
+      "icon": "/icons/companies/aylabs.png"
+    },
+    {
       "name": "Flutter",
       "date": "2023-10",
       "description": "Présentation de Flutter et de ses avantages lors d'un meetup chez Pit.",
-      "type": "talk"
+      "type": "talk",
+      "icon": "/icons/technologies/flutter.png"
     },
     {
       "name": "Notion",
       "date": "2023-03",
       "description": "Présentation de Notion et de ses avantages lors d'un meetup interne chez Pit.",
-      "type": "talk"
+      "type": "talk",
+      "icon": "/icons/technologies/notion.png"
     },
     {
       "name": "Notion",
       "date": "2023-04",
       "description": "Présentation de Notion et de ses avantages lors d'un meetup externe chez Ippon Technologies.",
-      "type": "talk"
+      "type": "talk",
+      "icon": "/icons/technologies/notion.png"
     },
     {
       "name": "Github Copilot",
       "date": "2022-06",
       "description": "Présentation de Github Copilot et de ses avantages lors d'un meetup interne chez Pit.",
-      "type": "talk"
+      "type": "talk",
+      "icon": "/icons/technologies/copilot.png"
     },
     {
-      "name": "Message Queuing",
+      "name": "Message Queuing / RabbitMQ",
       "date": "2022-02",
       "description": "Présentation de Message Queuing via RabbitMQ lors d'un meetup interne chez Pit.",
-      "type": "talk"
+      "type": "talk",
+      "icon": "/icons/technologies/rabbitmq.png"
     },
     {
       "name": "Azure Fundamentals AZ-900",
       "date": "2021-08",
       "description": "Certification Microsoft Azure Fundamentals AZ-900 obtenue.",
-      "type": "certification"
+      "type": "certification",
+      "icon": "/icons/technologies/azure.png"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { X, Calendar, Briefcase, GraduationCap, Mic } from 'lucide-react';
+import { X, Calendar, Briefcase, GraduationCap, Mic, Trophy, Underline } from 'lucide-react';
 import { TimelineItem } from '../types/profile';
 import { formatDate } from '../utils/timelineUtils';
 import { formatFrequency } from '../utils/frequencyUtils';
@@ -22,7 +22,43 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
     if (found && found.icon) companyIcon = found.icon;
   }
 
+  // Resolve technology/custom icon for education and events
+  let customIcon: string | undefined = undefined;
+  if (item.type === 'education') {
+    const education = item.data as any;
+    if (education.icon) {
+      customIcon = education.icon;
+    }
+  } else if (item.type === 'event') {
+    const event = item.data as Event;
+    if (event.icon) {
+      customIcon = event.icon;
+    }
+  }
+
+  // If no custom icon, check for technology name
+  if (!customIcon && (item.type === 'event' || item.type === 'education')) {
+    const textToSearch = item.title.toLowerCase();
+    const tech = (technologiesData as any[]).find((t: any) =>
+      textToSearch.includes(t.name.toLowerCase())
+    );
+    if (tech && tech.icon) {
+      customIcon = tech.icon;
+    }
+  }
+
   const renderIcon = () => {
+    // Use custom icon if available
+    if (customIcon) {
+      return <img src={customIcon} alt="" className="w-6 h-6 object-contain" />;
+    }
+
+    // Use company icon if available
+    if (companyIcon) {
+      return <img src={companyIcon} alt="" className="w-6 h-6 object-contain" />;
+    }
+
+    // Fall back to default icons
     switch (item.type) {
       case 'mission':
         return <Briefcase className="w-6 h-6" />;
@@ -31,7 +67,9 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
       case 'education':
         return <GraduationCap className="w-6 h-6" />;
       case 'event':
-        return <Mic className="w-6 h-6" />;
+        const event = item.data as Event
+        const Icon = event.type === 'talk' ? Mic : Trophy;
+        return <Icon className="w-6 h-6" />;
     }
   };
 
@@ -54,11 +92,7 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
         <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
           <div className="flex items-start gap-4 flex-1">
             <div className="p-3 rounded-lg" style={{ backgroundColor: `${item.color}20` }}>
-              {companyIcon ? (
-                <img src={companyIcon} alt="" className="w-6 h-6 object-contain" />
-              ) : (
-                <div style={{ color: item.color }}>{renderIcon()}</div>
-              )}
+              {renderIcon()}
             </div>
             <div className="flex-1">
               <h2 className="text-2xl font-bold text-gray-900">{item.title}</h2>
@@ -96,6 +130,13 @@ const MissionContent = ({ mission }: { mission: Mission }) => {
         <p className="text-gray-700 leading-relaxed">{mission.context}</p>
       </div>
 
+      {mission.link && (
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Liens</h3>
+          <a href={mission.link.url} target='_blank' className="text-blue-600 underline hover:text-blue-800 transition-colors">{mission.link.text}</a>
+        </div>
+      )}
+
       {mission.tasks && mission.tasks.length > 0 && (
         <div>
           <h3 className="text-lg font-semibold text-gray-900 mb-3">Tâches</h3>
@@ -129,7 +170,7 @@ const MissionContent = ({ mission }: { mission: Mission }) => {
                       <span className="font-medium text-gray-900">{tech.name}</span>
                     </div>
                     <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
-                      {Math.round((tech.frequency || 0) * 100)}% - {formatFrequency(tech.frequency)}
+                      {Math.round((Number(tech.frequency) || 0) * 100)}% - {formatFrequency(tech.frequency)}
                     </span>
                   </div>
                   <p className="text-sm text-gray-600">{tech.comments}</p>

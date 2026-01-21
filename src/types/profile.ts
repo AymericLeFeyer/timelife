@@ -19,6 +19,7 @@ export interface Education {
   degree: string;
   start_date: string;
   end_date: string;
+  icon: string;
 }
 
 export interface Technology {
@@ -36,6 +37,12 @@ export interface Mission {
   technologies: Technology[];
   tasks: string[];
   row?: number;
+  link?: Link;
+}
+
+export interface Link {
+  text: string;
+  url: string;
 }
 
 export interface Event {
@@ -43,6 +50,7 @@ export interface Event {
   date: string;
   description: string;
   type: string;
+  icon: string;
 }
 
 export interface Profile {

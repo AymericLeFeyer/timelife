@@ -206,10 +206,14 @@ export const Timeline = ({ items, searchQuery = '' }: TimelineProps) => {
             className="absolute top-1/2 -translate-y-1/2 flex flex-col items-center justify-center"
             style={{ left: '20px', width: `${sidePadding - 40}px` }}
           >
-            <div className="text-gray-400 text-sm italic text-center">
-              Avant ça je jouais à Dofus, ça t'intéresse ?
-            </div>
-            <div className="mt-2 text-gray-300 text-xs">✨</div>
+            {!isVertical && (
+              <>
+                <div className="text-gray-400 text-sm italic text-center">
+                  Avant ça je jouais à Dofus, ça t'intéresse ?
+                </div>
+                <div className="mt-2 text-gray-300 text-xs">✨</div>
+              </>
+            )}
           </div>
 
           <div
@@ -219,10 +223,14 @@ export const Timeline = ({ items, searchQuery = '' }: TimelineProps) => {
               width: `${sidePadding - 40}px`
             }}
           >
-            <div className="text-gray-400 text-sm italic text-center">
-              Le meilleur reste à venir
-            </div>
-            <div className="mt-2 text-gray-300 text-xs">🚀</div>
+            {!isVertical && (
+              <>
+                <div className="text-gray-400 text-sm italic text-center">
+                  Le meilleur reste à venir
+                </div>
+                <div className="mt-2 text-gray-300 text-xs">🚀</div>
+              </>
+            )}
           </div>
 
           {swimlaneHeights.map((swimlane, idx) => {

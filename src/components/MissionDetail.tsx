@@ -1,8 +1,8 @@
-import { X, Calendar, Briefcase, GraduationCap, Mic, Trophy, Underline } from 'lucide-react';
+import { X, Calendar, Briefcase, GraduationCap, Mic, Trophy } from 'lucide-react';
 import { TimelineItem } from '../types/profile';
 import { formatDate } from '../utils/timelineUtils';
 import { formatFrequency } from '../utils/frequencyUtils';
-import type { Mission, Company, Education, Event } from '../types/profile';
+import type { Mission, Company, Event } from '../types/profile';
 import companiesData from '../data/companies.json';
 import technologiesData from '../data/technologies.json';
 

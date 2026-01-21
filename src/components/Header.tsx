@@ -1,4 +1,4 @@
-import { Mail, Phone, Linkedin, Github } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 import { Contact } from '../types/profile';
 import { SearchBar } from './SearchBar';
 

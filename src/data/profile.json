@@ -276,11 +276,16 @@
       ],
       "tasks": [
         "Migration de toute l’application en Kotlin avec Compose, koin et ktor",
+        "Conception de nouveaux écrans et intégration UI/UX",
         "Mise en place de l’architecture technique",
+        "Participation au roulement de l'astreinte backend pour réparer le produit en cas d'incident",
+        "Intégration d'évènements anayltics personnalisés pour Amplitude / Google Analytics",
         "Validation auprès des pairs",
-        "Migration de toutes les features",
+        "Chiffrage / estimation de features",
+        "Veille technologique sur le monde Android",
         "Documentation, et formations envers mes collègues",
-        "Mise en place de tests d'intégration end-to-end pour assurer la qualité du code"
+        "Mise en place de tests d'intégration end-to-end pour assurer la qualité du code",
+        "Présentation de fonctionnalités lors de démos aux parties prenantes"
       ]
     },
     {

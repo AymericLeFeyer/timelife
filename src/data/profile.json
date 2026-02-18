@@ -156,7 +156,8 @@
       "tasks": [
         "Plein de prompts",
         "Déploiement du site"
-      ]
+      ],
+      "is_side_project": true
     },
     {
       "title": "aylabs.fr",
@@ -180,7 +181,8 @@
         "Quelques prompts pour démarrer",
         "Développement de quelques fonctionnalitées manquantes",
         "Déploiement du site"
-      ]
+      ],
+      "is_side_project": true
     },
     {
       "title": "AyLabs Docs",
@@ -208,7 +210,8 @@
       "tasks": [
         "Rédaction de documentations",
         "Déploiement du site"
-      ]
+      ],
+      "is_side_project": true
     },
     {
       "title": "Développeur d'application mobile Kotlin",
@@ -217,6 +220,7 @@
       "start_date": "2024-05",
       "end_date": "Present",
       "row": 2,
+      "is_side_project": false,
       "technologies": [
         {
           "name": "Kotlin",
@@ -295,6 +299,7 @@
       "start_date": "2022-06",
       "end_date": "2024-05",
       "row": 2,
+      "is_side_project": false,
       "technologies": [
         {
           "name": "Flutter",
@@ -358,6 +363,7 @@
       "start_date": "2023-11",
       "end_date": "2024-02",
       "row": 1,
+      "is_side_project": false,
       "technologies": [
         {
           "name": "Flutter",
@@ -396,6 +402,7 @@
           "comments": "Le language utilisé pour développer l'application mobile."
         }
       ],
+      "is_side_project": false,
       "tasks": [
         "Audit technique de l'application mobile",
         "Identification des points d'amélioration",
@@ -408,6 +415,7 @@
       "company": "Paragon",
       "start_date": "2022-02",
       "end_date": "2022-06",
+      "is_side_project": false,
       "row": 2,
       "technologies": [
         {
@@ -438,6 +446,7 @@
       "company": "Pit",
       "start_date": "2021-12",
       "end_date": "2022-01",
+      "is_side_project": false,
       "row": 2,
       "technologies": [
         {
@@ -476,6 +485,7 @@
       "company": "Pit",
       "start_date": "2021-10",
       "end_date": "2021-11",
+      "is_side_project": false,
       "row": 2,
       "technologies": [
         {
@@ -525,6 +535,7 @@
       "company": "TalentPlug",
       "start_date": "2021-07",
       "end_date": "2021-08",
+      "is_side_project": false,
       "row": 2,
       "technologies": [
         {
@@ -560,6 +571,7 @@
       "start_date": "2020-06",
       "end_date": "2021-06",
       "row": 2,
+      "is_side_project": false,
       "technologies": [
         {
           "name": "Android (Java)",
@@ -616,6 +628,7 @@
       "start_date": "2021-02",
       "end_date": "2021-08",
       "row": 1,
+      "is_side_project": false,
       "technologies": [
         {
           "name": "Flutter",
@@ -669,6 +682,7 @@
           "comments": "Utilisé pour le développement de l'application de préparation des conteneurs."
         }
       ],
+      "is_side_project": false,
       "tasks": [
         "Développement de ce logiciel permettant d'automatiser la préparation des conteneurs"
       ]
@@ -694,7 +708,8 @@
       ],
       "tasks": [
         "Développement de ce logiciel web permettant d'afficher en temps réel les informations des conteneurs"
-      ]
+      ],
+      "is_side_project": false
     },
     {
       "title": "habidom.fr",
@@ -707,6 +722,7 @@
          "text": "Site web" 
       },
       "row": 1,
+      "is_side_project": false,
       "technologies": [
         {
           "name": "HTML",
@@ -741,6 +757,7 @@
          "text": "Landing page" 
       },
       "row": 1,
+      "is_side_project": false,
       "technologies": [
         {
           "name": "Flutter",
@@ -765,6 +782,7 @@
       "company": "Bonap",
       "start_date": "2019-09",
       "end_date": "2020-05",
+      "is_side_project": true,
       "link": {
          "url": "https://stelapix.github.io/BonapWeb/",
          "text": "Landing page" 
@@ -799,6 +817,7 @@
       "title": "Développeur Fullstack",
       "context": "Ocee est un projet de fin d'études visant à développer une idée de A à Z, sans contrainte technologique. Nous avons créé une application web pour permettre aux entreprises de suivre l'avancement de leurs projets en un instant. Ocee signifie « Où Ça En Est ». Le projet a reçu une bonne note et faisait partie des meilleurs de la promotion.",
       "company": "Ocee",
+      "is_side_project": true,
       "link": {
          "url": "https://youtu.be/ezg4brJWcIk",
          "text": "Vidéo promotionnelle" 
@@ -841,6 +860,7 @@
       "context": "Caroline Optique est une boutique de lunettes basée à Wormhout, une petite ville du nord de la France. J'ai créé un site web pour présenter l'entreprise, ses services et l'équipe. Un formulaire permet aux visiteurs d'entrer en contact avec Caroline Optique.",
       "company": "Caroline Optique",
       "start_date": "2022-01",
+      "is_side_project": false,
       "end_date": "2022-01",
       "link": {
          "url": "https://www.caroline-optique.fr/",

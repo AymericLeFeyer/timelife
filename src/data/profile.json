@@ -51,7 +51,7 @@
       "company": "Pit",
       "position": "Développeur android stagiaire",
       "start_date": "2020-06",
-      "end_date": "2020-08",
+      "end_date": "2020-09",
       "row": 2,
       "responsibilities": ["Développement d'une application mobile"]
     },
@@ -97,7 +97,7 @@
       "icon": "/icons/companies/uphf.png"
     },
     {
-      "institution": "Coaching personnel",
+      "institution": "Coaching personnalisé",
       "degree": "Kotlin / Compose",
       "start_date": "2024-06",
       "end_date": "2024-09",
@@ -133,6 +133,42 @@
     }
   ],
   "missions": [
+    {
+      "title": "AyPhone",
+      "context": "Un nouveau site portfolio, j'ai décidé de faire comme si c'était un OS dédié. L'idée est d'avoir une interface sympa et originale pour présenter mes projets, mes compétences et mon parcours. J'ai utilisé Kotlin MultiPlatform pour voir si la target web était stable. J'ai aussi pas mal utilisé Claude afin de gagner du temps.",
+      "company": "Perso",
+      "start_date": "2026-02",
+      "end_date": "2026-02",
+      "row": 1,
+      "link": {
+        "url": "https://aymeric.lefeyer.fr/",
+        "text": "Site web"
+      },
+      "technologies": [
+        {
+          "name": "Kotlin Multiplatform",
+          "frequency": 1,
+          "comments": "L'outil utilisé pour développer le site web, j'ai aussi générer une target android mais un peu la flemme de mettre ça sur les stores"
+        },
+        {
+          "name": "Claude Code",
+          "frequency": 1,
+          "comments": "Un outil de vibe clauding"
+        },
+        {
+          "name": "Firebase",
+          "frequency": 0.1,
+          "comments": "Pour l'hébergement"
+        }
+      ],
+      "tasks": [
+        "Conception",
+        "Découverte de KMP web",
+        "Plein de prompts",
+        "Déploiement du site sur Firebase"
+      ],
+      "is_side_project": true
+    },
     {
       "title": "Time Life",
       "context": "J'ai vibe codé ce site en une soirée avec Bolt et Copilot. L'idée est d'afficher mes missions de manière temporelle plutôt que de définir les niveaux des technos avec des étoiles. Là au moins, c'est factuel.",

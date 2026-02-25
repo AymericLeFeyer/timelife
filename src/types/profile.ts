@@ -33,6 +33,7 @@ export interface Mission {
   company: string;
   start_date: string;
   end_date: string;
+  is_side_project?: boolean;
   technologies: Technology[];
   tasks: string[];
   row?: number;
@@ -64,7 +65,7 @@ export interface Profile {
 
 export interface TimelineItem {
   id: string;
-  type: 'mission' | 'company' | 'education' | 'event';
+  type: "mission" | "company" | "education" | "event";
   title: string;
   subtitle: string;
   startDate: Date;

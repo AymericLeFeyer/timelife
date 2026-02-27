@@ -1,9 +1,16 @@
-import { X, Calendar, Briefcase, GraduationCap, Mic, Trophy } from 'lucide-react';
-import { TimelineItem } from '../types/profile';
-import { formatDate } from '../utils/timelineUtils';
-import { formatFrequency } from '../utils/frequencyUtils';
-import type { Mission, Company, Event } from '../types/profile';
-import { useAppData, getCdnUrl } from '../context/AppDataContext';
+import {
+  X,
+  Calendar,
+  Briefcase,
+  GraduationCap,
+  Mic,
+  Trophy,
+} from "lucide-react";
+import { TimelineItem } from "../types/profile";
+import { formatDate } from "../utils/timelineUtils";
+import { formatFrequency } from "../utils/frequencyUtils";
+import type { Mission, Company, Event } from "../types/profile";
+import { useAppData, getCdnUrl } from "../context/AppDataContext";
 
 interface MissionDetailProps {
   item: TimelineItem | null;
@@ -16,19 +23,23 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
 
   // Resolve company icon if mission or company type
   let companyIcon: string | undefined = undefined;
-  if ((item.type === 'mission' || item.type === 'company') && item.subtitle) {
-    const found = companiesData.find(c => c.name === item.subtitle || c.name.toLowerCase() === item.subtitle.toLowerCase());
+  if ((item.type === "mission" || item.type === "company") && item.subtitle) {
+    const found = companiesData.find(
+      (c) =>
+        c.name === item.subtitle ||
+        c.name.toLowerCase() === item.subtitle.toLowerCase(),
+    );
     if (found && found.icon) companyIcon = getCdnUrl(found.icon);
   }
 
   // Resolve technology/custom icon for education and events
   let customIcon: string | undefined = undefined;
-  if (item.type === 'education') {
+  if (item.type === "education") {
     const education = item.data as any;
     if (education.icon) {
       customIcon = getCdnUrl(education.icon);
     }
-  } else if (item.type === 'event') {
+  } else if (item.type === "event") {
     const event = item.data as Event;
     if (event.icon) {
       customIcon = getCdnUrl(event.icon);
@@ -36,10 +47,10 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
   }
 
   // If no custom icon, check for technology name
-  if (!customIcon && (item.type === 'event' || item.type === 'education')) {
+  if (!customIcon && (item.type === "event" || item.type === "education")) {
     const textToSearch = item.title.toLowerCase();
     const tech = technologiesData.find((t: any) =>
-      textToSearch.includes(t.name.toLowerCase())
+      textToSearch.includes(t.name.toLowerCase()),
     );
     if (tech && tech.icon) {
       customIcon = getCdnUrl(tech.icon);
@@ -54,43 +65,54 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
 
     // Use company icon if available
     if (companyIcon) {
-      return <img src={companyIcon} alt="" className="w-6 h-6 object-contain" />;
+      return (
+        <img src={companyIcon} alt="" className="w-6 h-6 object-contain" />
+      );
     }
 
     // Fall back to default icons
     switch (item.type) {
-      case 'mission':
+      case "mission":
         return <Briefcase className="w-6 h-6" />;
-      case 'company':
+      case "company":
         return <Briefcase className="w-6 h-6" />;
-      case 'education':
+      case "education":
         return <GraduationCap className="w-6 h-6" />;
-      case 'event':
-        const event = item.data as Event
-        const Icon = event.type === 'talk' ? Mic : Trophy;
+      case "event":
+        const event = item.data as Event;
+        const Icon = event.type === "talk" ? Mic : Trophy;
         return <Icon className="w-6 h-6" />;
     }
   };
 
   const renderContent = () => {
     switch (item.type) {
-      case 'mission':
+      case "mission":
         return <MissionContent mission={item.data as Mission} />;
-      case 'company':
+      case "company":
         return <CompanyContent company={item.data as Company} />;
-      case 'education':
-        return <div/>;
-      case 'event':
+      case "education":
+        return <div />;
+      case "event":
         return <EventContent event={item.data as Event} />;
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
-      <div className="bg-white rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+    <div
+      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
           <div className="flex items-start gap-4 flex-1">
-            <div className="p-3 rounded-lg" style={{ backgroundColor: `${item.color}20` }}>
+            <div
+              className="p-3 rounded-lg"
+              style={{ backgroundColor: `${item.color}20` }}
+            >
               {renderIcon()}
             </div>
             <div className="flex-1">
@@ -100,8 +122,8 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
                 <Calendar className="w-4 h-4" />
                 <span>
                   {formatDate(item.startDate)}
-                  {' - '}
-                  {item.endDate ? formatDate(item.endDate) : 'Aujourd\'hui'}
+                  {" - "}
+                  {item.endDate ? formatDate(item.endDate) : "Aujourd'hui"}
                 </span>
               </div>
             </div>
@@ -113,7 +135,9 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
             <X className="w-5 h-5" />
           </button>
         </div>
-        {item.type !== 'education' && <div className="p-6">{renderContent()}</div>}
+        {item.type !== "education" && (
+          <div className="p-6">{renderContent()}</div>
+        )}
       </div>
     </div>
   );
@@ -122,6 +146,31 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
 const MissionContent = ({ mission }: { mission: Mission }) => {
   const { technologies } = useAppData();
 
+  const getFrequencyValue = (frequency: number | string): number => {
+    if (typeof frequency === "number") {
+      return Number.isFinite(frequency) ? frequency : -1;
+    }
+
+    const value = frequency.trim().toLowerCase();
+    const parsed = Number.parseFloat(value.replace(",", ".").replace("%", ""));
+
+    if (!Number.isNaN(parsed)) {
+      return value.includes("%") ? parsed / 100 : parsed;
+    }
+
+    if (value.includes("quotidien")) return 0.8;
+    if (value.includes("souvent")) return 0.5;
+    if (value.includes("temps en temps")) return 0.2;
+    if (value.includes("petit peu")) return 0.1;
+    if (value.includes("jamais")) return 0;
+
+    return -1;
+  };
+
+  const sortedTechnologies = [...(mission.technologies ?? [])].sort(
+    (a, b) => getFrequencyValue(b.frequency) - getFrequencyValue(a.frequency),
+  );
+
   return (
     <div className="space-y-6">
       <div>
@@ -129,10 +178,27 @@ const MissionContent = ({ mission }: { mission: Mission }) => {
         <p className="text-gray-700 leading-relaxed">{mission.context}</p>
       </div>
 
+      <div>
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          Type de mission
+        </h3>
+        <p className="text-gray-700 leading-relaxed">
+          {(mission as any).is_side_project
+            ? "Projet personnel"
+            : "Mission professionnelle"}
+        </p>
+      </div>
+
       {mission.link && (
         <div>
           <h3 className="text-lg font-semibold text-gray-900 mb-3">Liens</h3>
-          <a href={mission.link.url} target='_blank' className="text-blue-600 underline hover:text-blue-800 transition-colors">{mission.link.text}</a>
+          <a
+            href={mission.link.url}
+            target="_blank"
+            className="text-blue-600 underline hover:text-blue-800 transition-colors"
+          >
+            {mission.link.text}
+          </a>
         </div>
       )}
 
@@ -152,10 +218,16 @@ const MissionContent = ({ mission }: { mission: Mission }) => {
 
       {mission.technologies && mission.technologies.length > 0 && (
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Technologies</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">
+            Technologies
+          </h3>
           <div className="space-y-3">
-            {mission.technologies.map((tech, idx) => {
-              const techData = technologies.find(t => t.name === tech.name || t.name.toLowerCase() === tech.name.toLowerCase());
+            {sortedTechnologies.map((tech, idx) => {
+              const techData = technologies.find(
+                (t) =>
+                  t.name === tech.name ||
+                  t.name.toLowerCase() === tech.name.toLowerCase(),
+              );
               return (
                 <div
                   key={idx}
@@ -164,12 +236,19 @@ const MissionContent = ({ mission }: { mission: Mission }) => {
                   <div className="flex items-center justify-between mb-1">
                     <div className="flex items-center gap-2">
                       {techData && techData.icon && (
-                        <img src={getCdnUrl(techData.icon)} alt="" className="w-5 h-5 object-contain flex-shrink-0" />
+                        <img
+                          src={getCdnUrl(techData.icon)}
+                          alt=""
+                          className="w-5 h-5 object-contain flex-shrink-0"
+                        />
                       )}
-                      <span className="font-medium text-gray-900">{tech.name}</span>
+                      <span className="font-medium text-gray-900">
+                        {tech.name}
+                      </span>
                     </div>
                     <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
-                      {Math.round((Number(tech.frequency) || 0) * 100)}% - {formatFrequency(tech.frequency)}
+                      {Math.round((Number(tech.frequency) || 0) * 100)}% -{" "}
+                      {formatFrequency(tech.frequency)}
                     </span>
                   </div>
                   <p className="text-sm text-gray-600">{tech.comments}</p>
@@ -186,7 +265,9 @@ const MissionContent = ({ mission }: { mission: Mission }) => {
 const CompanyContent = ({ company }: { company: Company }) => (
   <div className="space-y-4">
     <div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-3">Responsabilités</h3>
+      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+        Responsabilités
+      </h3>
       <ul className="space-y-2">
         {company.responsibilities.map((resp, idx) => (
           <li key={idx} className="flex items-start gap-3">
@@ -199,14 +280,11 @@ const CompanyContent = ({ company }: { company: Company }) => (
   </div>
 );
 
-
-
 const EventContent = ({ event }: { event: Event }) => (
   <div className="space-y-4">
     <div>
       <h3 className="text-lg font-semibold text-gray-900 mb-2">Description</h3>
       <p className="text-gray-700">{event.description}</p>
     </div>
-   
   </div>
 );

@@ -1,8 +1,7 @@
 import { TimelineItem as TimelineItemType, Event } from '../types/profile';
 import { formatDate, calculateYOffset, PositionedItem, getDurationInMonths } from '../utils/timelineUtils';
 import { Mic, GraduationCap, Trophy, Briefcase, Code } from 'lucide-react';
-import companiesData from '../data/companies.json';
-import technologiesData from '../data/technologies.json';
+import { useAppData, getCdnUrl } from '../context/AppDataContext';
 
 interface TimelineItemProps {
   item: TimelineItemType;
@@ -29,6 +28,7 @@ export const TimelineItemComponent = ({
   matchesSearch = true,
   isSearchActive = false,
 }: TimelineItemProps) => {
+  const { companies: companiesData, technologies: technologiesData } = useAppData();
   const isEvent = item.type === 'event';
   const actualEndDate = item.endDate || item.startDate;
   const duration = getDurationInMonths(item.startDate, actualEndDate);
@@ -85,7 +85,7 @@ export const TimelineItemComponent = ({
   let companyIcon: string | undefined = undefined;
   if ((item.type === 'company' || item.type === 'mission') && item.subtitle) {
     const found = companiesData.find((c: any) => c.name === item.subtitle || c.name.toLowerCase() === item.subtitle.toLowerCase());
-    if (found && found.icon) companyIcon = found.icon;
+    if (found && found.icon) companyIcon = getCdnUrl(found.icon);
   }
 
   // Show simple icon for very short items
@@ -101,12 +101,12 @@ export const TimelineItemComponent = ({
     if (item.type === 'education') {
       const education = item.data as any;
       if (education.icon) {
-        technologyIcon = education.icon;
+        technologyIcon = getCdnUrl(education.icon);
       }
     } else if (item.type === 'event') {
       const event = item.data as Event;
       if (event.icon) {
-        technologyIcon = event.icon;
+        technologyIcon = getCdnUrl(event.icon);
       }
     }
 
@@ -157,13 +157,12 @@ export const TimelineItemComponent = ({
   const displayTitle = item.title;
   const shouldGrayOut = isSearchActive && !matchesSearch;
 
-  // Resolve icon path for company/mission items using companies.json
-  const companies = (companiesData as Array<{ name: string; icon: string }>);
+  // Resolve icon path for company/mission items
   let resolvedIcon: string | undefined = undefined;
   if (item.type === 'company' || item.type === 'mission') {
     const companyName = item.subtitle;
-    const found = companies.find(c => c.name === companyName || c.name.toLowerCase() === companyName.toLowerCase());
-    if (found && found.icon) resolvedIcon = found.icon;
+    const found = companiesData.find(c => c.name === companyName || c.name.toLowerCase() === companyName.toLowerCase());
+    if (found && found.icon) resolvedIcon = getCdnUrl(found.icon);
   }
 
   // Resolve icon for education and events
@@ -171,23 +170,23 @@ export const TimelineItemComponent = ({
   if (item.type === 'education') {
     const education = item.data as any;
     if (education.icon) {
-      educationEventIcon = education.icon;
+      educationEventIcon = getCdnUrl(education.icon);
     }
   } else if (item.type === 'event') {
     const event = item.data as Event;
     if (event.icon) {
-      educationEventIcon = event.icon;
+      educationEventIcon = getCdnUrl(event.icon);
     }
   }
 
   // If no custom icon, check for technology name
   if (!educationEventIcon && (item.type === 'event' || item.type === 'education')) {
     const textToSearch = item.title.toLowerCase();
-    const tech = (technologiesData as any[]).find((t: any) =>
+    const tech = technologiesData.find((t: any) =>
       textToSearch.includes(t.name.toLowerCase())
     );
     if (tech && tech.icon) {
-      educationEventIcon = tech.icon;
+      educationEventIcon = getCdnUrl(tech.icon);
     }
   }
 

@@ -3,8 +3,7 @@ import { TimelineItem } from '../types/profile';
 import { formatDate } from '../utils/timelineUtils';
 import { formatFrequency } from '../utils/frequencyUtils';
 import type { Mission, Company, Event } from '../types/profile';
-import companiesData from '../data/companies.json';
-import technologiesData from '../data/technologies.json';
+import { useAppData, getCdnUrl } from '../context/AppDataContext';
 
 interface MissionDetailProps {
   item: TimelineItem | null;
@@ -12,14 +11,14 @@ interface MissionDetailProps {
 }
 
 export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
+  const { companies: companiesData, technologies: technologiesData } = useAppData();
   if (!item) return null;
 
   // Resolve company icon if mission or company type
   let companyIcon: string | undefined = undefined;
   if ((item.type === 'mission' || item.type === 'company') && item.subtitle) {
-    const companies = (companiesData as Array<{ name: string; icon: string }>);
-    const found = companies.find(c => c.name === item.subtitle || c.name.toLowerCase() === item.subtitle.toLowerCase());
-    if (found && found.icon) companyIcon = found.icon;
+    const found = companiesData.find(c => c.name === item.subtitle || c.name.toLowerCase() === item.subtitle.toLowerCase());
+    if (found && found.icon) companyIcon = getCdnUrl(found.icon);
   }
 
   // Resolve technology/custom icon for education and events
@@ -27,23 +26,23 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
   if (item.type === 'education') {
     const education = item.data as any;
     if (education.icon) {
-      customIcon = education.icon;
+      customIcon = getCdnUrl(education.icon);
     }
   } else if (item.type === 'event') {
     const event = item.data as Event;
     if (event.icon) {
-      customIcon = event.icon;
+      customIcon = getCdnUrl(event.icon);
     }
   }
 
   // If no custom icon, check for technology name
   if (!customIcon && (item.type === 'event' || item.type === 'education')) {
     const textToSearch = item.title.toLowerCase();
-    const tech = (technologiesData as any[]).find((t: any) =>
+    const tech = technologiesData.find((t: any) =>
       textToSearch.includes(t.name.toLowerCase())
     );
     if (tech && tech.icon) {
-      customIcon = tech.icon;
+      customIcon = getCdnUrl(tech.icon);
     }
   }
 
@@ -121,7 +120,7 @@ export const MissionDetail = ({ item, onClose }: MissionDetailProps) => {
 };
 
 const MissionContent = ({ mission }: { mission: Mission }) => {
-  const technologies = (technologiesData as Array<{ name: string; icon: string }>);
+  const { technologies } = useAppData();
 
   return (
     <div className="space-y-6">
@@ -165,7 +164,7 @@ const MissionContent = ({ mission }: { mission: Mission }) => {
                   <div className="flex items-center justify-between mb-1">
                     <div className="flex items-center gap-2">
                       {techData && techData.icon && (
-                        <img src={techData.icon} alt="" className="w-5 h-5 object-contain flex-shrink-0" />
+                        <img src={getCdnUrl(techData.icon)} alt="" className="w-5 h-5 object-contain flex-shrink-0" />
                       )}
                       <span className="font-medium text-gray-900">{tech.name}</span>
                     </div>

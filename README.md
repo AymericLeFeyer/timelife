@@ -16,7 +16,9 @@ An interactive career timeline that visualizes professional experience, missions
 
 ## Screenshots
 
-> _Screenshots coming soon_
+<img width="1884" height="843" alt="Vue d'ensemble" src="https://github.com/user-attachments/assets/7887500e-da4e-4812-92a5-1378a758dd26" />
+<img width="1892" height="869" alt="Vue filtrée" src="https://github.com/user-attachments/assets/836b9a5d-74a9-4a4c-a119-5297cb6bf3d0" />
+<img width="1882" height="915" alt="Détails d'une mission" src="https://github.com/user-attachments/assets/ee23f403-04ac-437b-bfe6-8e0dccbbfcd2" />
 
 ---
 

@@ -1,4 +1,8 @@
-# Timelife
+<div align="center">
+
+# 📅 Timelife
+
+**An interactive career timeline that visualizes professional experience, missions, and technologies in a clean chronological view.**
 
 [![Deploy to Firebase Hosting](https://github.com/AymericLeFeyer/timelife/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)](https://github.com/AymericLeFeyer/timelife/actions/workflows/firebase-hosting-pull-request.yml)
 [![Last commit](https://img.shields.io/github/last-commit/AymericLeFeyer/timelife)](https://github.com/AymericLeFeyer/timelife/commits/main)
@@ -10,7 +14,7 @@
 ![Firebase](https://img.shields.io/badge/Hosted_on-Firebase-FFCA28?logo=firebase&logoColor=black)
 [![License: MIT-NC](https://img.shields.io/badge/License-MIT--NC-green.svg)](./LICENSE)
 
-An interactive career timeline that visualizes professional experience, missions, and technologies in a clean chronological view.
+</div>
 
 ---
 

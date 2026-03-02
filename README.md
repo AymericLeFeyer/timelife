@@ -8,6 +8,7 @@
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Hosted_on-Firebase-FFCA28?logo=firebase&logoColor=black)
+[![License: MIT-NC](https://img.shields.io/badge/License-MIT--NC-green.svg)](./LICENSE)
 
 An interactive career timeline that visualizes professional experience, missions, and technologies in a clean chronological view.
 

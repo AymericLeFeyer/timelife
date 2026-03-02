@@ -1,4 +1,4 @@
-import { Search, X, Smartphone } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 interface SearchBarProps {
@@ -12,10 +12,14 @@ interface QuickFilter {
   label: string;
 }
 
+const BASE_ICONS_URL = 'https://api.aymeric.lefeyer.fr/icons/technologies';
+
 const QUICK_FILTERS: QuickFilter[] = [
-  { name: 'kotlin', icon: '/icons/technologies/kotlin.png', label: 'Kotlin' },
-  { name: 'flutter', icon: '/icons/technologies/flutter.png', label: 'Flutter' },
-  { name: 'mobile', icon: '', label: 'Mobile' }, // Will use Smartphone icon
+  { name: 'kotlin', icon: `${BASE_ICONS_URL}/kotlin.png`, label: 'Kotlin' },
+  { name: 'flutter', icon: `${BASE_ICONS_URL}/flutter.png`, label: 'Flutter' },
+  { name: 'react', icon: `${BASE_ICONS_URL}/react.png`, label: 'React' },
+  { name: 'vuejs', icon: `${BASE_ICONS_URL}/vuejs.png`, label: 'VueJS' },
+  { name: 'nodejs', icon: `${BASE_ICONS_URL}/nodejs.png`, label: 'NodeJS' },
 ];
 
 export const SearchBar = ({ value, onChange }: SearchBarProps) => {
@@ -79,15 +83,11 @@ export const SearchBar = ({ value, onChange }: SearchBarProps) => {
               }`}
               title={filter.label}
             >
-              {filter.name === 'mobile' ? (
-                <Smartphone className={`w-5 h-5 ${activeFilter === filter.name ? 'text-blue-500' : 'text-gray-600'}`} />
-              ) : (
-                <img
-                  src={filter.icon}
-                  alt={filter.label}
-                  className="w-5 h-5"
-                />
-              )}
+              <img
+                src={filter.icon}
+                alt={filter.label}
+                className="w-5 h-5"
+              />
             </button>
           ))}
         </div>

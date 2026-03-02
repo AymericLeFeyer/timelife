@@ -19,7 +19,6 @@ const QUICK_FILTERS: QuickFilter[] = [
   { name: 'flutter', icon: `${BASE_ICONS_URL}/flutter.png`, label: 'Flutter' },
   { name: 'react', icon: `${BASE_ICONS_URL}/react.png`, label: 'React' },
   { name: 'vuejs', icon: `${BASE_ICONS_URL}/vuejs.png`, label: 'VueJS' },
-  { name: 'nodejs', icon: `${BASE_ICONS_URL}/nodejs.png`, label: 'NodeJS' },
 ];
 
 export const SearchBar = ({ value, onChange }: SearchBarProps) => {
